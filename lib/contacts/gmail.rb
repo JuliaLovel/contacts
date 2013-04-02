@@ -22,9 +22,9 @@ class Contacts
           email = e.attribute('address').value if e.attribute('primary')
         end
         entry.elements.each('gd:email') do |e|
-          phone = e.text if e.attribute('primary')
-          [title, email, phone] unless email.nil?
+          phone = e.text if e.attribute('primary')         
         end
+        [title, email, phone] unless email.nil?
       end
       @contacts.compact!
     rescue GData::Client::AuthorizationError => e
