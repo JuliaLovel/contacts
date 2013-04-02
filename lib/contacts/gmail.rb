@@ -21,7 +21,7 @@ class Contacts
         entry.elements.each('gd:email') do |e|
           email = e.attribute('address').value if e.attribute('primary')
         end
-        entry.elements.each('gd:email') do |e|
+        entry.elements.each('gd:phoneNumber') do |e|
           phone = e.text if e.attribute('primary')         
         end
         [title, email, phone] unless email.nil?
