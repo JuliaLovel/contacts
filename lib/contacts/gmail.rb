@@ -17,7 +17,7 @@ class Contacts
       feed = @client.get(CONTACTS_FEED).to_xml
       
       @contacts = feed.elements.to_a('entry').collect do |entry|
-        title, email = entry.elements['title'].text, nil
+        title, email, phone = entry.elements['title'].text, nil, nil
         entry.elements.each('gd:email') do |e|
           email = e.attribute('address').value if e.attribute('primary')
         end
